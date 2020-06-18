@@ -193,58 +193,96 @@ fclose($file);
             $yes3_rate = round($sum5["お金がかかる"] / $count * 100);
             $yes4_rate = round($sum5["その他"] / $count * 100);
 
-            echo '  <td>行くのが面倒だ：' . $sum5["忙しくて暇がない"] . '人<br>' .
+            echo '  <td>行くのが面倒だ：' . $sum5["行くのが面倒だ"] . '人<br>' .
                '忙しくて暇がない：' . $sum5["忙しくて暇がない"] . '人<br>' .
                'お金がかかる：' . $sum5["お金がかかる"] . '人<br>' .
-               'その他：' . $sum5["その他"] .'人</td>';
-            echo '  <td>忙しくて暇がない：' . $yes1_rate . '%<br>' .
+               'その他：' . $sum5["その他"] . '人</td>';
+            echo '  <td>行くのが面倒だ：' . $yes1_rate . '%<br>' .
                '忙しくて暇がない：' . $yes2_rate . '%<br>' .
                'お金がかかる：' . $yes3_rate . '%<br>' .
                'その他：' . $yes4_rate . '%</td>';
             ?>
          </tr>
 
+         <tr>
+            <td>行きたくない理由</td>
+            <?php
+            $no1_rate = round($sum6["現在悪いところがないから"] / $count * 100);
+            $no2_rate = round($sum6["忙しくて暇がない"] / $count * 100);
+            $no3_rate = round($sum6["歯医者が嫌い"] / $count * 100);
+            $no4_rate = round($sum6["その他"] / $count * 100);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            echo '  <td>現在悪いところがないから：' . $sum6["現在悪いところがないから"] . '人<br>' .
+               '忙しくて暇がない：' . $sum6["忙しくて暇がない"] . '人<br>' .
+               '歯医者が嫌い：' . $sum6["歯医者が嫌い"] . '人<br>' .
+               'その他：' . $sum6["その他"] . '人</td>';
+            echo '  <td>現在悪いところがないから：' . $no1_rate . '%<br>' .
+               '忙しくて暇がない：' . $no2_rate . '%<br>' .
+               '歯医者が嫌い：' . $no3_rate . '%<br>' .
+               'その他：' . $no4_rate . '%</td>';
+            ?>
+         </tr>
 
          <tr>
-            <th>性別</th>
-            <th>年齢</th>
-            <th>最近歯医者に行ったのはいつですか？</th>
-            <th>近々歯医者に行きたいと思っていますか？</th>
-            <th>行きたいけど行っていない理由</th>
-            <th>行きたくない理由</th>
-            <th>歯に関するお悩み</th>
-            <th>歯医者のイメージ</th>
+            <td>歯に関するお悩み</td>
+            <?php
+            $problem1_rate = round($sum7["ない"] / $count * 100);
+            $problem2_rate = round($sum7["虫歯の悩み"] / $count * 100);
+            $problem3_rate = round($sum7["歯周病の悩み"] / $count * 100);
+            $problem4_rate = round($sum7["審美的な悩み（歯並び、色など）"] / $count * 100);
+            $problem5_rate = round($sum7["その他"] / $count * 100);
+
+            echo '  <td>ない：' . $sum7["ない"] . '人<br>' .
+               '虫歯の悩み：' . $sum7["虫歯の悩み"] . '人<br>' .
+               '歯周病の悩み：' . $sum7["歯周病の悩み"] . '人<br>' .
+               '審美的な悩み（歯並び、色など）：' . $sum7["審美的な悩み（歯並び、色など）"] . '人<br>' .
+               'その他：' . $sum7["その他"] . '人</td>';
+            echo '  <td>ない：' . $problem1_rate . '%<br>' .
+               '虫歯の悩み：' . $problem2_rate . '%<br>' .
+               '歯周病の悩み：' . $problem3_rate . '%<br>' .
+               '審美的な悩み（歯並び、色など）：' . $problem4_rate . '%<br>' .
+               'その他：' . $problem5_rate . '%</td>';
+            ?>
          </tr>
-         <?php foreach ($aryCsv as $value) { ?>
-            <!-- <tr>
-            <td><?php echo $value[0] ?></td>
-            <td><?php echo $value[1] ?></td>
-            <td><?php echo $value[2] ?></td>
-            <td><?php echo $value[3] ?></td>
-            <td><?php echo $value[4] ?></td>
-            <td><?php echo $value[5] ?></td>
-            <td><?php echo $value[6] ?></td>
-            <td><?php echo $value[7] ?></td>
-         </tr> -->
-         <?php } ?>
+         <tr>
+            <td>歯医者のイメージ</td>
+            <td>
+               <?php
+               foreach ($aryCsv as $value) {
+                  echo $value[7] . "<br>";
+               }
+               ?>
+            </td>
+         </tr>
+
    </table>
 
+   <footer>
+      <p>05kadai.hirono.baba</p>
+   </footer>
 
+   <style>
+      body {
+         font-size: 15px;
+         line-height: 2em;
+         width: 85%;
+         margin: 0 auto;
+         color: #4D648D;
+         background-color: #fcfdfd;
+      }
+
+      footer {
+         background-color: #92AAC7;
+         text-align: center;
+         color: white;
+      }
+
+      footer p {
+         margin: 0;
+         padding: 5px 0;
+         letter-spacing: 5px;
+      }
+   </style>
 
 </body>
 
