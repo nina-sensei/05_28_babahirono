@@ -257,9 +257,36 @@ fclose($file);
 
    </table>
 
+   <canvas id="myPieChart"></canvas>
+
    <footer>
       <p>05kadai.hirono.baba</p>
    </footer>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+   <script>
+      var ctx = document.getElementById("myPieChart");
+      var myPieChart = new Chart(ctx, {
+         type: 'pie',
+         data: {
+            labels: ["男", "女"],
+            datasets: [{
+               backgroundColor: [
+                  "#BB5179",
+                  "#FAFF67",
+               ],
+               data: [50, 50]
+            }]
+         },
+         options: {
+            title: {
+               display: true,
+               text: '男女比'
+            }
+         }
+      });
+   </script>
+
 
    <style>
       body {
